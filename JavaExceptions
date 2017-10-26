@@ -9,3 +9,24 @@ keytool -import -noprompt -trustcacerts -alias <AliasName> -file   <certificate>
 
 Afer import you can run the first command again to check if your certificate was added.
 -------------------------------------------------------------------------------------------------------------------------
+org.aspectj.apache.bcel.classfile.ClassFormatException: Invalid byte tag in constant pool: 15
+Solution)Try to downgrade Java compiler to JDK 7 or upgrade AspectJ dependecies to 1.8+
+
+Look for the following artifacts in your project:
+
+<dependency>
+    <groupId>org.aspectj</groupId>
+    <artifactId>aspectjrt</artifactId>
+    <version>1.6.11</version>
+</dependency>
+<dependency>
+    <groupId>org.aspectj</groupId>
+    <artifactId>aspectjtools</artifactId>
+    <version>1.6.11</version>
+</dependency>
+<dependency>
+    <groupId>org.aspectj</groupId>
+    <artifactId>aspectjweaver</artifactId>
+    <version>1.6.11</version>
+</dependency>
+--------------------------------------------------------------------------------
