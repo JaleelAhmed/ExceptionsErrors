@@ -1,0 +1,11 @@
+sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target; nested exception is javax.net.ssl.SSLHandshakeException: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+Sol)You need to add the certificate for App2 to the truststore file of the used JVM located at %JAVA_HOME%\lib\security\cacerts.
+
+First you can check if your certificate is already in the truststore by running the following command: keytool -list -keystore "%JAVA_HOME%/jre/lib/security/cacerts" (you don't need to provide a password)
+
+If your certificate is missing, you can get it by downloading it with your browser and add it to the truststore with the following command:
+
+keytool -import -noprompt -trustcacerts -alias <AliasName> -file   <certificate> -keystore <KeystoreFile> -storepass <Password>
+
+Afer import you can run the first command again to check if your certificate was added.
+-------------------------------------------------------------------------------------------------------------------------
